@@ -11,7 +11,7 @@ cpan HTML::Restrict
 pear install  Contact_Vcard_Build Contact_Vcard_Parse
 
 
-dialog --title "Latex installieren" --backtitle "kivitendo installieren" --yesno "Möchten Sie Latex installieren?" 7 60
+dialog --title "LaTeX installieren" --backtitle "kivitendo installieren" --yesno ". LaTeX bietet eine verbesserte Ausgabe von Druckdokumenten und ist optional, da Dokumente auch in HTML ausgeben werden koennen. Die Installation dauert aber ein wenig. Möchten Sie Latex installieren?" 7 60
 
 
 response=$?
@@ -28,7 +28,7 @@ dialog --clear --title "Dialog Password" --backtitle "kivitendo installieren" --
 PASSWD=`cat /tmp/kivitendo_passwd.$$`
 
 ##Dialog Directory
-DIR=/var/www
+DIR=/var/www/html
 dialog --clear --title "Dialog Installationsverzeichnis" --backtitle "kivitendo installieren" --inputbox "Pfad ohne abschliessenden Slash eingenben" 10 50 2>/tmp/kivitendo_dir.$$ /var/www
 DIR=`cat /tmp/kivitendo_dir.$$`
 rm -f /tmp/kivitendo*
