@@ -11,13 +11,12 @@ echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty-updates multiverse" >> /et
 echo "deb-src http://us.archive.ubuntu.com/ubuntu/ trusty-updates multiverse" >> /etc/apt/sources.list
 
 
-apt-get update && apt-get upgrade &
+apt-get update & 
+apt-get upgrade &
 apt-get install git postgresql
 pg_createcluster --locale=de_DE.UTF-8 --encoding=UTF-8 9.3 main
 apt-get install make gcc apache2 libapache2-mod-fastcgi libarchive-zip-perl libclone-perl libconfig-std-perl libdatetime-perl libdbd-pg-perl libdbi-perl libemail-address-perl libemail-mime-perl libfcgi-perl libjson-perl liblist-moreutils-perl libnet-smtp-ssl-perl libnet-sslglue-perl libparams-validate-perl libpdf-api2-perl librose-db-object-perl librose-db-perl librose-object-perl libsort-naturally-perl libstring-shellquote-perl libtemplate-perl libtext-csv-xs-perl libtext-iconv-perl liburi-perl libxml-writer-perl libyaml-perl libfile-copy-recursive-perl libgd-gd2-perl libimage-info-perl postgresql-9.3 git perl-doc libapache2-mod-php5 php5-gd php5-imap php-mail php-mail-mime php-pear php-mdb2 php-mdb2-driver-pgsql php-fpdf libfpdi-php imagemagick ttf-freefont php5-curl libphp-jpgraph dialog php5-enchant aspell-de &
-
 apt-get install libalgorithm-checkdigits-perl libarchive-zip-perl libclone-perl libdatetime-perl libdatetime-format-strptime-perl     libdbi-perl libdbd-pg-perl libemail-mime-perl libfcgi-perl     libgd-gd2-perl libhtml-parser-perl libimage-info-perl libjson-perl     libparams-validate-perl libpdf-api2-perl librose-object-perl     librose-db-perl librose-db-object-perl libtemplate-perl     libtext-csv-xs-perl libxml-writer-perl
-
 
 install CPAN &
 reload cpan &
