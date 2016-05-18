@@ -29,7 +29,7 @@ PASSWD=`cat /tmp/kivitendo_passwd.$$`
 
 ##Dialog Directory
 DIR=/var/www
-dialog --clear --title "Dialog Installationsverzeichnis" --backtitle "kivitendo installieren" --inputbox "Pfad ohne abschließenden Slash eingenben" 10 50 2>/tmp/kivitendo_dir.$$ /var/www
+dialog --clear --title "Dialog Installationsverzeichnis" --backtitle "kivitendo installieren" --inputbox "Pfad ohne abschliessenden Slash eingenben" 10 50 2>/tmp/kivitendo_dir.$$ /var/www
 DIR=`cat /tmp/kivitendo_dir.$$`
 rm -f /tmp/kivitendo*
 
