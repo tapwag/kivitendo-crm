@@ -19,18 +19,6 @@ reload cpan &
 cpan HTML::Restrict &
 pear install  Contact_Vcard_Build Contact_Vcard_Parse &
 
-dialog --title "LaTeX installieren" --backtitle "kivitendo installieren" --yesno ". LaTeX bietet eine verbesserte Ausgabe von Druckdokumenten und ist optional, da Dokumente auch in HTML ausgeben werden koennen. Die Installation dauert aber ein wenig. Möchten Sie Latex installieren?" 12 60
-
-
-response=$?
-case $response in
-   0) echo "LaTex wird installiert."
-      apt-get install texlive-base-bin texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra texlive-lang-german texlive-generic-extra
-      ;;
-   1) echo "LaTex wird nicht installiert."
-      ;;
-esac
-
 ##Dialog Passwd
 dialog --clear --title "Dialog Password" --backtitle "kivitendo installieren" --inputbox "Achtung, Password in Beispieldatenbank bleibt unverändert. (kivitendo)" 10 50 2>/tmp/kivitendo_passwd.$$ kivitendo
 PASSWD=`cat /tmp/kivitendo_passwd.$$`
@@ -142,6 +130,17 @@ case $response in
        ;;
 esac
 
+dialog --title "LaTeX installieren" --backtitle "kivitendo installieren" --yesno ". LaTeX bietet eine verbesserte Ausgabe von Druckdokumenten und ist optional, da Dokumente auch in HTML ausgeben werden koennen. Die Installation dauert aber ein wenig. Möchten Sie Latex installieren?" 12 60
+
+
+response=$?
+case $response in
+   0) echo "LaTex wird installiert."
+      apt-get install texlive-base-bin texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra texlive-lang-german texlive-generic-extra
+      ;;
+   1) echo "LaTex wird nicht installiert."
+      ;;
+esac
 
 
 echo "......Installation beendet"
