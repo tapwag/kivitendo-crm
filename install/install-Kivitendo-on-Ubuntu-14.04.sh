@@ -4,22 +4,30 @@ set +e
 
 ## Memo und Script zur Installation von kivitendo unter Ubuntu 14.04 (LTS)
 echo "Pakete installieren"
-apt-get update && apt-get upgrade
-apt-get install make gcc apache2 libapache2-mod-fastcgi libarchive-zip-perl libclone-perl libconfig-std-perl libdatetime-perl libdbd-pg-perl libdbi-perl libemail-address-perl libemail-mime-perl libfcgi-perl libjson-perl liblist-moreutils-perl libnet-smtp-ssl-perl libnet-sslglue-perl libparams-validate-perl libpdf-api2-perl librose-db-object-perl librose-db-perl librose-object-perl libsort-naturally-perl libstring-shellquote-perl libtemplate-perl libtext-csv-xs-perl libtext-iconv-perl liburi-perl libxml-writer-perl libyaml-perl libfile-copy-recursive-perl libgd-gd2-perl libimage-info-perl postgresql-9.3 git perl-doc libapache2-mod-php5 php5-gd php5-imap php-mail php-mail-mime php-pear php-mdb2 php-mdb2-driver-pgsql php-fpdf libfpdi-php imagemagick ttf-freefont php5-curl libphp-jpgraph dialog php5-enchant aspell-de
 
-cpan HTML::Restrict
-pear install  Contact_Vcard_Build Contact_Vcard_Parse
+echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty multiverse" >> /etc/apt/sources.list
+echo "deb-src http://us.archive.ubuntu.com/ubuntu/ trusty multiverse" >> /etc/apt/sources.list
+echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty-updates multiverse" >> /etc/apt/sources.list
+echo "deb-src http://us.archive.ubuntu.com/ubuntu/ trusty-updates multiverse" >> /etc/apt/sources.list
 
+
+apt-get update && apt-get upgrade &
+apt-get install make gcc apache2 libapache2-mod-fastcgi libarchive-zip-perl libclone-perl libconfig-std-perl libdatetime-perl libdbd-pg-perl libdbi-perl libemail-address-perl libemail-mime-perl libfcgi-perl libjson-perl liblist-moreutils-perl libnet-smtp-ssl-perl libnet-sslglue-perl libparams-validate-perl libpdf-api2-perl librose-db-object-perl librose-db-perl librose-object-perl libsort-naturally-perl libstring-shellquote-perl libtemplate-perl libtext-csv-xs-perl libtext-iconv-perl liburi-perl libxml-writer-perl libyaml-perl libfile-copy-recursive-perl libgd-gd2-perl libimage-info-perl postgresql-9.3 git perl-doc libapache2-mod-php5 php5-gd php5-imap php-mail php-mail-mime php-pear php-mdb2 php-mdb2-driver-pgsql php-fpdf libfpdi-php imagemagick ttf-freefont php5-curl libphp-jpgraph dialog php5-enchant aspell-de &
+
+install CPAN &
+reload cpan &
+cpan HTML::Restrict &
+pear install  Contact_Vcard_Build Contact_Vcard_Parse &
 
 dialog --title "LaTeX installieren" --backtitle "kivitendo installieren" --yesno ". LaTeX bietet eine verbesserte Ausgabe von Druckdokumenten und ist optional, da Dokumente auch in HTML ausgeben werden koennen. Die Installation dauert aber ein wenig. Möchten Sie Latex installieren?" 12 60
 
 
 response=$?
 case $response in
-   0) echo "Latex wird installiert."
+   0) echo "LaTex wird installiert."
       apt-get install texlive-base-bin texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra texlive-lang-german texlive-generic-extra
       ;;
-   1) echo "Latex wird nicht installiert."
+   1) echo "LaTex wird nicht installiert."
       ;;
 esac
 
@@ -33,11 +41,9 @@ dialog --clear --title "Dialog Installationsverzeichnis" --backtitle "kivitendo 
 DIR=`cat /tmp/kivitendo_dir.$$`
 rm -f /tmp/kivitendo*
 
-
 cd $DIR
 git clone https://github.com/kivitendo/kivitendo-erp.git
 git clone https://github.com/kivitendo/kivitendo-crm.git
-
 
 
 echo "Virtuellen Host anlegen"
