@@ -11,7 +11,7 @@ cpan HTML::Restrict
 pear install  Contact_Vcard_Build Contact_Vcard_Parse
 
 
-dialog --title "LaTeX installieren" --backtitle "kivitendo installieren" --yesno ". LaTeX bietet eine verbesserte Ausgabe von Druckdokumenten und ist optional, da Dokumente auch in HTML ausgeben werden koennen. Die Installation dauert aber ein wenig. Möchten Sie Latex installieren?" 7 60
+dialog --title "LaTeX installieren" --backtitle "kivitendo installieren" --yesno ". LaTeX bietet eine verbesserte Ausgabe von Druckdokumenten und ist optional, da Dokumente auch in HTML ausgeben werden koennen. Die Installation dauert aber ein wenig. Möchten Sie Latex installieren?" 12 60
 
 
 response=$?
